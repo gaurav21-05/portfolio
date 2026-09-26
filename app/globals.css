@@ -3,30 +3,76 @@
 @theme {
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  --color-bg-primary: #08090D;
-  --color-bg-secondary: #0D1017;
-  --color-bg-card: #0F131E;
-  --color-bg-card-hover: #141A29;
-  --color-border-subtle: #161A24;
-  --color-border: #202532;
-  --color-border-bright: #2E374A;
-  --color-text-primary: #F5F7FB;
-  --color-text-secondary: #8992A4;
-  --color-text-muted: #555E70;
-  --color-accent: #6D7CFF;
-  --color-accent-light: #8B97FF;
-  --color-accent-dim: rgba(109, 124, 255, 0.1);
-  --color-accent-glow: rgba(109, 124, 255, 0.22);
 }
 
 :root {
+  /* Dark Mode Defaults */
   --bg-primary: #08090D;
   --bg-secondary: #0D1017;
+  --bg-card: #0D1017;
+  --bg-card-hover: #131722;
+  --bg-subtle: #141A28;
+  --bg-badge: #161A26;
   --text-primary: #F5F7FB;
   --text-secondary: #8992A4;
+  --text-muted: #555E70;
   --border-color: #202532;
-  --accent-color: #6D7CFF;
+  --border-hover: #2E374A;
+  --border-subtle: #161A24;
+  --accent: #6D7CFF;
+  --accent-light: #8B97FF;
+  --accent-dim: rgba(109, 124, 255, 0.12);
+  --accent-glow: rgba(109, 124, 255, 0.22);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --dot-color: rgba(255, 255, 255, 0.08);
+  --nav-bg: rgba(8, 9, 13, 0.85);
+  --nav-border: #202532;
+  --btn-primary-bg: #F5F7FB;
+  --btn-primary-text: #08090D;
+  --btn-secondary-bg: #0D1017;
+  --btn-secondary-text: #F5F7FB;
+  --modal-bg: #0D1017;
+  --modal-subtle: #08090D;
+  --modal-backdrop: rgba(0, 0, 0, 0.82);
+  --card-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.6);
+  --hero-glow: rgba(109, 124, 255, 0.1);
+  --scrollbar-thumb: #202532;
+  --scrollbar-thumb-hover: #2E374A;
+}
+
+[data-theme="light"], .light {
+  /* Cream Light Mode Theme */
+  --bg-primary: #FAF7F2;          /* Luxurious warm cream base */
+  --bg-secondary: #F3ECE2;        /* Deeper warm cream tone */
+  --bg-card: #FFFFFF;             /* Crisp pure white cards for depth */
+  --bg-card-hover: #FCFAF7;       /* Soft cream hover */
+  --bg-subtle: #F4EFE6;           /* Subtle cream inner container */
+  --bg-badge: #EFE8DD;            /* Warm cream badge */
+  --text-primary: #191614;        /* Rich charcoal espresso */
+  --text-secondary: #686057;      /* Warm graphite secondary text */
+  --text-muted: #9A9084;          /* Warm muted cream text */
+  --border-color: #E5DFD4;        /* Warm crisp cream border */
+  --border-hover: #CEC5B6;        /* Subtle contrast border on hover */
+  --border-subtle: #EBE5DB;       /* Hairline cream separator */
+  --accent: #4856DF;              /* High-contrast vibrant cobalt/indigo */
+  --accent-light: #3744C7;
+  --accent-dim: rgba(72, 86, 223, 0.08);
+  --accent-glow: rgba(72, 86, 223, 0.16);
+  --grid-line: rgba(25, 22, 20, 0.04);
+  --dot-color: rgba(25, 22, 20, 0.08);
+  --nav-bg: rgba(250, 247, 242, 0.88);
+  --nav-border: #E5DFD4;
+  --btn-primary-bg: #191614;
+  --btn-primary-text: #FAF7F2;
+  --btn-secondary-bg: #FFFFFF;
+  --btn-secondary-text: #191614;
+  --modal-bg: #FFFFFF;
+  --modal-subtle: #FAF7F2;
+  --modal-backdrop: rgba(25, 22, 20, 0.55);
+  --card-shadow: 0 12px 32px -10px rgba(80, 60, 40, 0.08);
+  --hero-glow: rgba(72, 86, 223, 0.08);
+  --scrollbar-thumb: #DED6CA;
+  --scrollbar-thumb-hover: #C5BCAD;
 }
 
 /* Custom Scrollbar */
@@ -36,35 +82,35 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #08090D;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #202532;
+  background: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2E374A;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Smooth Focus States */
 :focus-visible {
-  outline: 2px solid #6D7CFF;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Subtle Grid Background Pattern */
+/* Grid Background Patterns */
 .bg-grid-pattern {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
   background-size: 24px 24px;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
 }
 
 /* Radial Mask for subtle fade */
@@ -78,38 +124,148 @@
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
-/* Linear-style Card Gradient Border */
-.glow-card {
-  position: relative;
-  background: #0D1017;
-  border: 1px solid #202532;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+/* Light Theme (Cream) Universal Overrides for High Visual Consistency */
+[data-theme="light"], .light {
+  color-scheme: light;
 }
 
-.glow-card:hover {
-  border-color: rgba(109, 124, 255, 0.4);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px -10px rgba(109, 124, 255, 0.12);
+[data-theme="light"] body,
+.light body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
 }
 
-/* Subtle Shimmer */
-@keyframes subtle-shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+[data-theme="light"] main,
+.light main {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
 }
 
-.animate-shimmer {
-  animation: subtle-shimmer 3s infinite ease-in-out;
+/* Background overrides in Light/Cream Mode */
+[data-theme="light"] .bg-\[\#08090D\],
+.light .bg-\[\#08090D\] {
+  background-color: var(--bg-primary) !important;
 }
 
-/* Custom easing class */
-.transition-editorial {
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  transition-duration: 400ms;
+[data-theme="light"] .bg-\[\#08090D\]\/85,
+.light .bg-\[\#08090D\]\/85 {
+  background-color: rgba(250, 247, 242, 0.9) !important;
+}
+
+[data-theme="light"] .bg-\[\#0A0D14\],
+.light .bg-\[\#0A0D14\] {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="light"] .bg-\[\#0D1017\],
+.light .bg-\[\#0D1017\] {
+  background-color: var(--bg-card) !important;
+  box-shadow: 0 4px 20px -2px rgba(90, 75, 55, 0.05);
+}
+
+[data-theme="light"] .bg-\[\#0D1017\]\/50,
+[data-theme="light"] .bg-\[\#0D1017\]\/60,
+.light .bg-\[\#0D1017\]\/50,
+.light .bg-\[\#0D1017\]\/60 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .bg-\[\#141A28\],
+[data-theme="light"] .bg-\[\#161A26\],
+[data-theme="light"] .bg-\[\#161B26\],
+.light .bg-\[\#141A28\],
+.light .bg-\[\#161A26\],
+.light .bg-\[\#161B26\] {
+  background-color: var(--bg-subtle) !important;
+}
+
+[data-theme="light"] .bg-\[\#1E2538\],
+.light .bg-\[\#1E2538\] {
+  background-color: var(--bg-badge) !important;
+}
+
+/* Hover background states in Light Mode */
+[data-theme="light"] .hover\:bg-\[\#141A28\]:hover,
+[data-theme="light"] .hover\:bg-\[\#151924\]:hover,
+[data-theme="light"] .hover\:bg-\[\#161B26\]:hover,
+[data-theme="light"] .hover\:bg-\[\#202532\]:hover,
+.light .hover\:bg-\[\#141A28\]:hover,
+.light .hover\:bg-\[\#151924\]:hover,
+.light .hover\:bg-\[\#161B26\]:hover,
+.light .hover\:bg-\[\#202532\]:hover {
+  background-color: var(--bg-subtle) !important;
+}
+
+/* Text overrides in Light Mode */
+[data-theme="light"] .text-\[\#F5F7FB\],
+.light .text-\[\#F5F7FB\] {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-\[\#8992A4\],
+.light .text-\[\#8992A4\] {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .text-\[\#555E70\],
+.light .text-\[\#555E70\] {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="light"] .hover\:text-\[\#F5F7FB\]:hover,
+.light .hover\:text-\[\#F5F7FB\]:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Accent & Borders in Light Mode */
+[data-theme="light"] .text-\[\#6D7CFF\],
+.light .text-\[\#6D7CFF\] {
+  color: var(--accent) !important;
+}
+
+[data-theme="light"] .bg-\[\#6D7CFF\],
+.light .bg-\[\#6D7CFF\] {
+  background-color: var(--accent) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .border-\[\#202532\],
+[data-theme="light"] .border-\[\#202532\]\/60,
+[data-theme="light"] .border-\[\#202532\]\/70,
+[data-theme="light"] .border-\[\#202532\]\/80,
+.light .border-\[\#202532\],
+.light .border-\[\#202532\]\/60,
+.light .border-\[\#202532\]\/70,
+.light .border-\[\#202532\]\/80 {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="light"] .hover\:border-\[\#6D7CFF\]\/50:hover,
+[data-theme="light"] .hover\:border-\[\#6D7CFF\]\/40:hover,
+[data-theme="light"] .hover\:border-\[\#6D7CFF\]\/60:hover,
+.light .hover\:border-\[\#6D7CFF\]\/50:hover,
+.light .hover\:border-\[\#6D7CFF\]\/40:hover,
+.light .hover\:border-\[\#6D7CFF\]\/60:hover {
+  border-color: var(--accent) !important;
+}
+
+/* Hero primary button in Light Mode */
+[data-theme="light"] .bg-\[\#F5F7FB\],
+.light .bg-\[\#F5F7FB\] {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+}
+
+/* Hero gradient text in Light Mode */
+[data-theme="light"] .bg-gradient-to-r.from-\[\#F5F7FB\],
+.light .bg-gradient-to-r.from-\[\#F5F7FB\] {
+  background-image: linear-gradient(to right, #191614, #191614, #686057) !important;
+}
+
+/* Modal dialog in Light Mode */
+[data-theme="light"] .bg-black\/80,
+.light .bg-black\/80 {
+  background-color: var(--modal-backdrop) !important;
 }
 
 /* Reduced motion preference */

@@ -14,7 +14,7 @@ import { AIChat } from "@/components/AIChat";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col min-h-screen bg-[#08090D] text-[#F5F7FB]">
+    <main className="relative flex flex-col min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-200">
       {/* Top Floating Pill Navigation & Scroll Progress Indicator */}
       <Navbar />
 

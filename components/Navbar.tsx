@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ArrowUpRight, Menu, X, Terminal } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,9 @@ export function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
+            {/* Theme Toggle (Desktop & Mobile) */}
+            <ThemeToggle />
+
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161B26] hover:bg-[#202532] text-xs font-mono text-[#F5F7FB] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all group"
@@ -107,8 +111,11 @@ export function Navbar() {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div className="flex flex-col gap-4 mt-6">
-            <div className="text-[11px] font-mono text-[#555E70] uppercase tracking-wider mb-2">
-              Navigation
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#555E70] uppercase tracking-wider mb-2">
+              <span>Navigation</span>
+              <span onClick={(e) => e.stopPropagation()}>
+                <ThemeToggle />
+              </span>
             </div>
             {navLinks.map((link) => (
               <a
