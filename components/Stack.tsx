@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ENGINEERING_STACK } from "@/data/stack";
-import { Sparkles, Terminal, Database, Cloud, Layout, Wrench } from "lucide-react";
+import { Sparkles, Terminal, Database, Cloud, Layout, Workflow } from "lucide-react";
 
 export function Stack() {
   const [activeCategory, setActiveCategory] = useState<string>("ALL");
@@ -13,7 +13,7 @@ export function Stack() {
     Databases: <Database className="w-4 h-4 text-[#6D7CFF]" />,
     "Cloud / DevOps": <Cloud className="w-4 h-4 text-[#6D7CFF]" />,
     Frontend: <Layout className="w-4 h-4 text-[#6D7CFF]" />,
-    "Tools & Ecosystem": <Wrench className="w-4 h-4 text-[#6D7CFF]" />,
+    Architecture: <Workflow className="w-4 h-4 text-[#6D7CFF]" />,
   };
 
   const filteredStack =
@@ -22,21 +22,21 @@ export function Stack() {
       : ENGINEERING_STACK.filter((cat) => cat.title === activeCategory);
 
   return (
-    <section id="stack" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="stack" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-[#202532]">
         <div>
           <div className="font-mono text-xs text-[#6D7CFF] uppercase tracking-wider mb-3">
-            TECHNICAL REPERTOIRE
+            03 / ENGINEERING STACK
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#F5F7FB] font-sans">
-            Engineering stack.
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FB] font-sans">
+            What I work with.
           </h2>
         </div>
 
         <p className="text-sm md:text-base text-[#8992A4] max-w-md font-mono">
-          Selected technologies proven in production systems across model pipelines,
-          distributed backends, and cloud runtimes.
+          Production technologies across AI agent workflows, distributed backends,
+          databases, and cloud infrastructure.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export function Stack() {
         <button
           type="button"
           onClick={() => setActiveCategory("ALL")}
-          className={`px-3 py-1.5 rounded-full font-mono text-xs transition-colors cursor-pointer ${
+          className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-colors cursor-pointer ${
             activeCategory === "ALL"
               ? "bg-[#6D7CFF] text-[#08090D] font-semibold"
               : "bg-[#0D1017] text-[#8992A4] hover:text-[#F5F7FB] border border-[#202532]"
@@ -59,7 +59,7 @@ export function Stack() {
             key={cat.title}
             type="button"
             onClick={() => setActiveCategory(cat.title)}
-            className={`px-3 py-1.5 rounded-full font-mono text-xs transition-colors cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-colors cursor-pointer ${
               activeCategory === cat.title
                 ? "bg-[#6D7CFF] text-[#08090D] font-semibold"
                 : "bg-[#0D1017] text-[#8992A4] hover:text-[#F5F7FB] border border-[#202532]"
@@ -75,13 +75,13 @@ export function Stack() {
         {filteredStack.map((cat) => (
           <div
             key={cat.title}
-            className="p-6 rounded-xl bg-[#0D1017] border border-[#202532] hover:border-[#2E374A] transition-all flex flex-col justify-between"
+            className="p-6 sm:p-7 rounded-xl bg-[#0D1017] border border-[#202532] hover:border-[#2E374A] transition-all flex flex-col justify-between"
           >
             <div>
               {/* Category Header */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2.5">
-                  {categoryIcons[cat.title]}
+                  {categoryIcons[cat.title] || <Sparkles className="w-4 h-4 text-[#6D7CFF]" />}
                   <h3 className="font-mono text-base font-semibold text-[#F5F7FB]">
                     {cat.title}
                   </h3>

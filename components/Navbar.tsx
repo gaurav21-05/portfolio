@@ -27,10 +27,10 @@ export function Navbar() {
 
   const navLinks = [
     { label: "Work", href: "#work" },
-    { label: "Capabilities", href: "#capabilities" },
-    { label: "Stack", href: "#stack" },
-    { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
+    { label: "Stack", href: "#stack" },
+    { label: "GitHub", href: "#github" },
+    { label: "Achievements", href: "#achievements" },
   ];
 
   return (

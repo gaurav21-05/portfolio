@@ -37,7 +37,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[350px] bg-[#6D7CFF]/8 rounded-full blur-[140px] pointer-events-none -z-10" />
 
@@ -58,9 +58,9 @@ export function Contact() {
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#8992A4] max-w-lg mb-10 leading-relaxed">
-            Whether you are building autonomous agents, scaling an AI pipeline, or looking for a
-            Full-Stack AI Engineer who delivers production-grade software — my inbox is open.
+          <p className="text-base sm:text-lg text-[#8992A4] max-w-lg mb-10 leading-relaxed font-sans">
+            Open to full-time roles, freelance projects, and interesting collaborations.
+            Based in New Delhi — working with teams globally.
           </p>
 
           {/* Quick Contact Cards */}

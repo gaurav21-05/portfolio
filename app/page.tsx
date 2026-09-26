@@ -2,13 +2,12 @@ import React from "react";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { EngineeringProof } from "@/components/EngineeringProof";
 import { SelectedWork } from "@/components/SelectedWork";
-import { Capabilities } from "@/components/Capabilities";
-import { Stack } from "@/components/Stack";
-import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
-import { Achievements } from "@/components/Achievements";
+import { Stack } from "@/components/Stack";
 import { GithubProjects } from "@/components/GithubProjects";
+import { Achievements } from "@/components/Achievements";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AIChat } from "@/components/AIChat";
@@ -24,34 +23,31 @@ export default function Home() {
         {/* Top Floating Pill Navigation & Scroll Progress Indicator */}
         <Navbar />
 
-        {/* Hero Section */}
+        {/* 1. HERO */}
         <Hero />
 
-        {/* 01 / Selected Work (Case Studies) */}
+        {/* 2. ENGINEERING PROOF */}
+        <EngineeringProof />
+
+        {/* 3. SELECTED WORK */}
         <SelectedWork />
 
-        {/* 02 / What I Build (Capabilities) */}
-        <Capabilities />
-
-        {/* Technical Stack */}
-        <Stack />
-
-        {/* 03 / About (Philosophy & Approach) */}
-        <About />
-
-        {/* 04 / Experience (WTI Cabs AI Engineer Intern) */}
+        {/* 4. EXPERIENCE */}
         <Experience />
 
-        {/* 05 / Achievements & Recognition */}
-        <Achievements />
+        {/* 5. ENGINEERING STACK */}
+        <Stack />
 
-        {/* Open Source / Curated Repositories */}
+        {/* 6. GITHUB BUILDS */}
         <GithubProjects />
 
-        {/* 06 / Contact (Let's Build Something Intelligent) */}
+        {/* 7. ACHIEVEMENTS */}
+        <Achievements />
+
+        {/* 8. CONTACT */}
         <Contact />
 
-        {/* Footer */}
+        {/* FOOTER */}
         <Footer />
       </div>
 

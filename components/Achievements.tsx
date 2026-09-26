@@ -14,14 +14,14 @@ export function Achievements() {
   };
 
   return (
-    <section id="achievements" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="achievements" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#202532]">
         <div>
           <div className="font-mono text-xs text-[#6D7CFF] uppercase tracking-wider mb-3">
             05 / RECOGNITION
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#F5F7FB] font-sans">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FB] font-sans">
             Achievements & Credentials.
           </h2>
         </div>

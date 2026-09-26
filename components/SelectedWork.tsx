@@ -6,7 +6,7 @@ import { ProjectCard } from "./ProjectCard";
 
 export function SelectedWork() {
   return (
-    <section id="work" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="work" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#202532]">
         <div>
@@ -14,7 +14,7 @@ export function SelectedWork() {
             01 / SELECTED WORK
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FB] font-sans">
-            Things I build.
+            Things I&apos;ve built.
           </h2>
         </div>
 
@@ -24,10 +24,10 @@ export function SelectedWork() {
         </p>
       </div>
 
-      {/* Large Project Cards */}
-      <div className="flex flex-col gap-10 md:gap-14">
-        {PROJECTS.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+      {/* Flagship Case Studies with Alternating Layouts */}
+      <div className="flex flex-col gap-12 md:gap-16">
+        {PROJECTS.map((project, idx) => (
+          <ProjectCard key={project.id} project={project} index={idx} />
         ))}
       </div>
     </section>
