@@ -1,66 +1,95 @@
-# Gaurav Rawat — Full-Stack AI Engineer Portfolio
+# Gaurav Rawat | Full-Stack AI Engineer
 
-> A modern, interactive portfolio showcasing my work in AI engineering, agentic systems, full-stack development, and cloud infrastructure.
+<p align="center">
+  <strong>Building AI-powered products, agentic systems, and production-ready software.</strong>
+</p>
 
-🌐 **Live Portfolio:** [gauravrawat.in](https://gauravrawat.in)
+<p align="center">
+  <a href="https://https://portfolio-jade-three-76.vercel.app/">
+    <img src="https://img.shields.io/badge/Live%20Portfolio-gauravrawat.in-6D7CFF?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Portfolio" />
+  </a>
+  <a href="https://github.com/gaurav21-05">
+    <img src="https://img.shields.io/badge/GitHub-gaurav21--05-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="mailto:gauravrawatop@gmail.com">
+    <img src="https://img.shields.io/badge/Email-gauravrawatop%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
 
 ---
 
-## ✨ About
+## 🚀 About
 
-This is my personal portfolio website, designed to showcase the systems, products, and engineering work I've built across AI, backend development, full-stack applications, and cloud infrastructure.
+This is the source code for my personal portfolio website.
 
-Rather than being a traditional developer portfolio, the website focuses on **how I build and ship real products**.
+The portfolio is built around my work as a **Full-Stack AI Engineer**, with a focus on building and shipping practical AI systems rather than simply experimenting with models.
 
-It highlights:
+It showcases my work across:
 
 - AI-powered applications
 - Agentic AI systems
-- LLM workflows and automation
-- Full-stack products
-- Backend architecture
-- Cloud deployments
-- Production engineering
-- Selected projects and achievements
+- LLM workflows
+- AI automation
+- Backend engineering
+- Full-stack development
+- Cloud infrastructure
+- Production systems
+- System architecture
+- Developer tooling
+
+The website is designed to feel more like an **AI product interface** than a traditional developer portfolio.
 
 ---
 
-## 🚀 Featured Work
+## 🌐 Live Website
 
-### 🛍️ Shinra — AI E-commerce Platform
-
-A production e-commerce platform combining AI-powered content generation, market research, product generation, and poster mockup automation.
-
-**Tech:**  
-`Next.js` `NestJS` `Node.js` `MongoDB` `TypeORM` `AWS`
-
-**Highlights:**
-- Production e-commerce platform
-- 10,000+ product records
-- AI-assisted product content generation
-- AI market research workflows
-- Automated poster mockups
-- REST APIs and production infrastructure
-- CI/CD deployment pipeline
+**Portfolio:**  
+https://gauravrawat.in
 
 ---
 
-### 🤖 Apex AI — Agentic AI Coding Orchestration
+# ✨ Features
 
-An agentic AI system designed to orchestrate software development workflows through structured planning, execution, validation, and recovery.
+The portfolio combines a minimal visual system with interactive engineering-focused experiences.
 
-**Tech:**  
-`Python` `FastAPI` `LLMs` `React Flow` `Docker`
+### Interactive UI
 
-**Architecture:**
+- Smooth page transitions
+- Scroll-triggered animations
+- Interactive project cards
+- Hover micro-interactions
+- Magnetic buttons
+- Subtle parallax effects
+- Animated UI elements
+- Responsive navigation
+- Animated architecture visualizations
+
+### Interactive Background
+
+The hero section includes an interactive canvas-based background featuring:
+
+- Dynamic particles
+- Connecting lines
+- Cursor proximity interaction
+- Particle displacement
+- Smooth particle recovery
+- Pointer-velocity reactions
+- Responsive particle density
+- Reduced-motion support
+
+The interaction is intentionally subtle and avoids the typical "cyberpunk particle explosion" aesthetic.
+
+---
+
+# 🧠 Engineering Focus
+
+The portfolio is centered around four major areas:
 
 ```text
-Criteria
-   ↓
-Planning
-   ↓
-Execution
-   ↓
-Validation
-   ↓
-Approval / Rollback
+AI Engineering
+      +
+Backend Systems
+      +
+Full-Stack Development
+      +
+Cloud Infrastructure
