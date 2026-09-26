@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowDown, ArrowUpRight, Terminal, Layers, Cpu, Cloud } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Terminal, Layers, Cpu, Cloud, FileText } from "lucide-react";
 import { Avatar } from "./Avatar";
 
 export function Hero() {
@@ -98,6 +98,17 @@ export function Hero() {
             >
               <span>GitHub</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#8992A4] group-hover:text-[#6D7CFF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-md bg-[#0D1017] hover:bg-[#151924] text-[#F5F7FB] border border-[#202532] hover:border-[#6D7CFF]/50 font-mono text-xs font-medium tracking-wider uppercase transition-all duration-200 group"
+              aria-label="View Gaurav Rawat's Resume PDF"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#6D7CFF]" />
+              <span>Resume</span>
             </a>
 
             {/* Quick Technical Indicator */}

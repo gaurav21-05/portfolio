@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Calendar, MapPin, ArrowRight, Server, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, Server, CheckCircle2, FileText, Download, Eye, GraduationCap } from "lucide-react";
+import { ResumeModal } from "./ResumeModal";
 
 export function Experience() {
   const [activeStage, setActiveStage] = useState(0);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Animated pipeline progress
@@ -166,6 +168,61 @@ export function Experience() {
           )}
         </div>
       </div>
+
+      {/* Full Resume & Credentials Showcase Card */}
+      <div
+        id="resume"
+        className="mt-10 p-6 sm:p-8 rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all duration-300 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+      >
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-[#141A28] border border-[#202532] text-[#6D7CFF] shrink-0 mt-0.5">
+            <FileText className="w-6 h-6" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 font-mono text-xs text-[#6D7CFF] uppercase tracking-wider mb-1">
+              <span>CURRICULUM VITAE</span>
+              <span>•</span>
+              <span className="text-[#8992A4]">OFFICIAL RESUME</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#F5F7FB] font-sans">
+              Gaurav Rawat — Engineering Background
+            </h3>
+            <p className="text-xs sm:text-sm text-[#8992A4] mt-1.5 max-w-xl leading-relaxed">
+              Complete career timeline including WTI Cabs reservation automation (3,000–5,000 emails/day),
+              Shinra live production scale (10,000+ records), GGSIPU B.Tech in Industrial IoT (2023–2027),
+              Snapchat AR & Cursor hackathon wins, and Oracle Cloud certification.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <button
+            type="button"
+            onClick={() => setResumeModalOpen(true)}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#161B26] hover:bg-[#202532] text-[#F5F7FB] border border-[#202532] hover:border-[#6D7CFF]/50 font-mono text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer"
+          >
+            <Eye className="w-3.5 h-3.5 text-[#6D7CFF]" />
+            <span>Interactive View</span>
+          </button>
+
+          <a
+            href="/resume.pdf"
+            download="Gaurav_Rawat_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#F5F7FB] hover:bg-[#FFFFFF] text-[#08090D] font-mono text-xs font-semibold tracking-wider uppercase transition-all shadow-md group"
+          >
+            <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+            <span>Download PDF</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Interactive Resume Modal */}
+      <ResumeModal
+        isOpen={resumeModalOpen}
+        onClose={() => setResumeModalOpen(false)}
+      />
     </section>
   );
 }

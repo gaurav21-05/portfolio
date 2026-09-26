@@ -26,11 +26,12 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Work", href: "#work" },
-    { label: "Experience", href: "#experience" },
-    { label: "Stack", href: "#stack" },
-    { label: "GitHub", href: "#github" },
-    { label: "Achievements", href: "#achievements" },
+    { label: "Work", href: "#work", isExternal: false },
+    { label: "Experience", href: "#experience", isExternal: false },
+    { label: "Stack", href: "#stack", isExternal: false },
+    { label: "GitHub", href: "#github", isExternal: false },
+    { label: "Achievements", href: "#achievements", isExternal: false },
+    { label: "Resume", href: "/resume.pdf", isExternal: true },
   ];
 
   return (
@@ -70,9 +71,11 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3 py-1.5 rounded-full hover:text-[#F5F7FB] hover:bg-[#202532]/50 transition-colors"
+                {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="px-3 py-1.5 rounded-full hover:text-[#F5F7FB] hover:bg-[#202532]/50 transition-colors inline-flex items-center gap-1"
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.isExternal && <ArrowUpRight className="w-3 h-3 opacity-60" />}
               </a>
             ))}
           </div>
@@ -121,11 +124,16 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-lg font-mono text-[#F5F7FB] hover:text-[#6D7CFF] py-2 border-b border-[#202532]/60 transition-colors flex items-center justify-between"
               >
                 <span>{link.label}</span>
-                <span className="text-xs text-[#555E70]">→</span>
+                {link.isExternal ? (
+                  <ArrowUpRight className="w-4 h-4 text-[#6D7CFF]" />
+                ) : (
+                  <span className="text-xs text-[#555E70]">→</span>
+                )}
               </a>
             ))}
             <a
