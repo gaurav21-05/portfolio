@@ -1,4 +1,5 @@
 import React from "react";
+import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -14,39 +15,45 @@ import { AIChat } from "@/components/AIChat";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-200">
-      {/* Top Floating Pill Navigation & Scroll Progress Indicator */}
-      <Navbar />
+    <main className="relative flex flex-col min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-200 overflow-x-hidden">
+      {/* Interactive Animated Digital Surface Background */}
+      <InteractiveBackground />
 
-      {/* Hero Section */}
-      <Hero />
+      {/* Main Content Layers */}
+      <div className="relative z-10 flex flex-col flex-1 w-full">
+        {/* Top Floating Pill Navigation & Scroll Progress Indicator */}
+        <Navbar />
 
-      {/* 01 / Selected Work (Case Studies) */}
-      <SelectedWork />
+        {/* Hero Section */}
+        <Hero />
 
-      {/* 02 / What I Build (Capabilities) */}
-      <Capabilities />
+        {/* 01 / Selected Work (Case Studies) */}
+        <SelectedWork />
 
-      {/* Technical Stack */}
-      <Stack />
+        {/* 02 / What I Build (Capabilities) */}
+        <Capabilities />
 
-      {/* 03 / About (Philosophy & Approach) */}
-      <About />
+        {/* Technical Stack */}
+        <Stack />
 
-      {/* 04 / Experience (WTI Cabs AI Engineer Intern) */}
-      <Experience />
+        {/* 03 / About (Philosophy & Approach) */}
+        <About />
 
-      {/* 05 / Achievements & Recognition */}
-      <Achievements />
+        {/* 04 / Experience (WTI Cabs AI Engineer Intern) */}
+        <Experience />
 
-      {/* Open Source / Curated Repositories */}
-      <GithubProjects />
+        {/* 05 / Achievements & Recognition */}
+        <Achievements />
 
-      {/* 06 / Contact (Let's Build Something Intelligent) */}
-      <Contact />
+        {/* Open Source / Curated Repositories */}
+        <GithubProjects />
 
-      {/* Footer */}
-      <Footer />
+        {/* 06 / Contact (Let's Build Something Intelligent) */}
+        <Contact />
+
+        {/* Footer */}
+        <Footer />
+      </div>
 
       {/* Floating Grounded AI Portfolio Assistant */}
       <AIChat />
