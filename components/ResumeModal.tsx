@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   X,
   Download,
@@ -25,6 +26,12 @@ interface ResumeModalProps {
 }
 
 export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -41,37 +48,38 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Gaurav Rawat Resume"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-[#0D1017] border border-[#202532] rounded-2xl shadow-2xl p-6 sm:p-10 my-8 max-h-[92vh] overflow-y-auto"
+        className="relative w-full max-w-4xl bg-[#0D1017] border border-[#202532] rounded-2xl shadow-2xl p-4 sm:p-6 md:p-10 my-4 sm:my-8 max-h-[94vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Floating Control Bar */}
-        <div className="sticky -top-6 -mt-4 -mx-6 sm:-top-10 sm:-mt-8 sm:-mx-10 px-6 sm:px-10 py-4 bg-[#0D1017]/95 backdrop-blur-md border-b border-[#202532] flex items-center justify-between z-30 mb-8">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-mono text-xs font-semibold text-[#F5F7FB] tracking-wider uppercase">
+        <div className="sticky -top-4 -mt-4 -mx-4 sm:-top-6 sm:-mt-6 sm:-mx-6 md:-top-10 md:-mt-8 md:-mx-10 px-4 sm:px-6 md:px-10 py-3 sm:py-4 bg-[var(--bg-card)]/95 backdrop-blur-md border-b border-[#202532] flex items-center justify-between z-30 mb-8 gap-2">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="font-mono text-xs font-semibold text-[#F5F7FB] tracking-wider uppercase truncate">
               GAURAV RAWAT — RESUME
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <a
               href="/resume.pdf"
               download="Gaurav_Rawat_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-[#6D7CFF] hover:bg-[#5C6CEB] text-white font-mono text-xs font-semibold tracking-wider transition-all shadow-md"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 rounded-md bg-[#6D7CFF] hover:bg-[#5C6CEB] text-white keep-white font-mono text-xs font-semibold tracking-wider transition-all shadow-md whitespace-nowrap"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download PDF</span>
+              <span className="hidden xs:inline">Download PDF</span>
+              <span className="xs:hidden">PDF</span>
             </a>
 
             <a
@@ -86,7 +94,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-md text-[#8992A4] hover:text-[#F5F7FB] hover:bg-[#202532] transition-colors"
+              className="p-1.5 rounded-md text-[#8992A4] hover:text-[#F5F7FB] hover:bg-[#202532] transition-colors cursor-pointer"
               aria-label="Close Resume Preview"
             >
               <X className="w-5 h-5" />
@@ -137,6 +145,16 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </a>
 
               <a
+                href="https://www.linkedin.com/in/gaurav-rawat-41293928b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-[#6D7CFF] transition-colors"
+              >
+                <LinkedinIcon className="w-3.5 h-3.5 text-[#6D7CFF]" />
+                <span>linkedin.com/in/gaurav-rawat</span>
+              </a>
+
+              <a
                 href="https://leetcode.com/u/gauravrawatop/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,10 +171,10 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             <h3 className="font-mono text-xs font-semibold text-[#6D7CFF] tracking-wider uppercase mb-2">
               Summary
             </h3>
-            <p className="text-sm sm:text-base leading-relaxed text-[#F5F7FB]/90">
+            <p className="text-sm sm:text-base leading-relaxed text-[#F5F7FB]">
               AI-focused software developer building LLM-powered features, agentic AI systems, tool-calling
               workflows, and document-intelligence automation. Shipped AI pipelines processing{" "}
-              <strong className="text-[#F5F7FB] font-semibold">3,000–5,000 emails/day</strong>, agent
+              <strong className="text-[#F5F7FB] font-bold">3,000–5,000 emails/day</strong>, agent
               orchestration with deterministic evaluation and rollback, persistent memory for AI agents, and a
               live AI-powered e-commerce platform serving thousands of monthly visitors. Strong in Python,
               FastAPI, Node.js, PostgreSQL, AWS, Docker, prompt engineering, and AI workflow automation.
@@ -238,6 +256,38 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     Developed REST APIs and optimized queries for{" "}
                     <strong className="text-[#F5F7FB]">10,000+ product records</strong>; implemented automated CI/CD
                     deployment and production infrastructure.
+                  </li>
+                </ul>
+              </div>
+
+              {/* WTI Cabs */}
+              <div className="p-4 sm:p-5 rounded-xl bg-[#08090D] border border-[#202532] space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-sm sm:text-base font-bold text-[#F5F7FB]">WTI Cabs</h4>
+                    <span className="text-xs text-[#8992A4]">— AI Reservation Automation</span>
+                    <span className="px-2 py-0.5 rounded bg-[#6D7CFF]/10 text-[#6D7CFF] font-mono text-[10px] font-semibold">
+                      Internship Project
+                    </span>
+                  </div>
+                  <span className="text-xs font-mono text-[#8992A4]">Jul 2026 – Sep 2026</span>
+                </div>
+                <div className="font-mono text-xs text-[#6D7CFF]">
+                  Python, FastAPI, PostgreSQL, Docker, AWS, .NET Integration
+                </div>
+                <ul className="space-y-1.5 text-xs sm:text-sm leading-relaxed list-disc list-inside text-[#8992A4]">
+                  <li>
+                    Built an AI-powered reservation automation pipeline processing{" "}
+                    <strong className="text-[#F5F7FB]">3,000–5,000 emails/day</strong>, extracting booking
+                    requirements and auto-creating reservations in an existing .NET backend.
+                  </li>
+                  <li>
+                    Designed a five-stage pipeline — ingestion → AI extraction → validation → corporate-rule evaluation → execution
+                    — with configurable org-specific rules and structured outputs.
+                  </li>
+                  <li>
+                    Persisted email, reservation, decision, and feedback data in PostgreSQL; containerized with Docker and deployed on
+                    AWS for production-scale processing.
                   </li>
                 </ul>
               </div>
@@ -417,6 +467,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

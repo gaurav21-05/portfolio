@@ -10,7 +10,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#202532] bg-[#08090D] py-16 px-6 md:px-12 text-xs font-mono">
+    <footer className="border-t border-[#202532] bg-[#08090D] py-12 px-4 sm:px-6 md:px-12 text-xs font-mono">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
         {/* Brand & Role */}
         <div>

@@ -47,9 +47,9 @@ export function Navbar() {
       />
 
       {/* Main Centered Floating Pill Navbar */}
-      <header className="fixed top-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
+      <header className="fixed top-3.5 sm:top-5 inset-x-0 z-40 flex justify-center px-4 sm:px-6 pointer-events-none">
         <nav
-          className={`pointer-events-auto flex items-center justify-between gap-6 px-4 md:px-6 py-2.5 rounded-full transition-all duration-300 border ${
+          className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-5 sm:px-6 py-2.5 rounded-full transition-all duration-300 border ${
             scrolled
               ? "bg-[#08090D]/85 backdrop-blur-xl border-[#202532] shadow-2xl shadow-black/60"
               : "bg-[#0D1017]/60 backdrop-blur-md border-[#202532]/60 shadow-lg shadow-black/20"
@@ -59,10 +59,10 @@ export function Navbar() {
           {/* Logo / Monogram */}
           <a
             href="#"
-            className="flex items-center gap-2.5 text-xs font-mono tracking-wider uppercase text-[#F5F7FB] hover:text-[#6D7CFF] transition-colors focus:outline-none"
+            className="flex items-center gap-2 sm:gap-2.5 text-xs font-mono tracking-wider uppercase text-[#F5F7FB] hover:text-[#6D7CFF] transition-colors focus:outline-none shrink-0 py-0.5"
           >
             <span className="w-2 h-2 rounded-full bg-[#6D7CFF] animate-pulse" />
-            <span className="font-semibold tracking-widest">GAURAV RAWAT</span>
+            <span className="font-semibold tracking-wider sm:tracking-widest whitespace-nowrap">GAURAV RAWAT</span>
           </a>
 
           {/* Desktop Nav Links */}
@@ -81,13 +81,13 @@ export function Navbar() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Theme Toggle (Desktop & Mobile) */}
             <ThemeToggle />
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161B26] hover:bg-[#202532] text-xs font-mono text-[#F5F7FB] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all group"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161B26] hover:bg-[#202532] text-xs font-mono text-[#F5F7FB] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all group whitespace-nowrap"
             >
               <span>Let&apos;s talk</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#8992A4] group-hover:text-[#6D7CFF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -97,7 +97,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-1.5 rounded-full text-[#8992A4] hover:text-[#F5F7FB] hover:bg-[#202532]/60 focus:outline-none"
+              className="md:hidden w-8 h-8 flex items-center justify-center rounded-full text-[#8992A4] hover:text-[#F5F7FB] hover:bg-[#202532]/60 focus:outline-none cursor-pointer shrink-0"
               aria-label="Toggle Navigation Menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -110,7 +110,7 @@ export function Navbar() {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/80 backdrop-blur-md md:hidden pt-20 px-6 flex flex-col justify-between pb-8"
+          className="fixed inset-0 z-30 navbar-mobile-drawer backdrop-blur-xl md:hidden pt-20 px-6 flex flex-col justify-between pb-8"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div className="flex flex-col gap-4 mt-6">

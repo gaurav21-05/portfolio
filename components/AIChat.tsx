@@ -82,28 +82,28 @@ export function AIChat() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
       {/* Floating Launcher Button */}
       {!isOpen && (
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#0D1017] hover:bg-[#141A28] border border-[#202532] hover:border-[#6D7CFF]/60 text-xs font-mono text-[#F5F7FB] shadow-2xl transition-all duration-300 hover:shadow-[0_0_24px_rgba(109,124,255,0.25)] cursor-pointer"
+          className="group relative flex items-center gap-2 sm:gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-[#0D1017] hover:bg-[#141A28] border border-[#202532] hover:border-[#6D7CFF]/60 text-xs font-mono text-[#F5F7FB] shadow-2xl transition-all duration-300 hover:shadow-[0_0_24px_rgba(109,124,255,0.25)] cursor-pointer"
           aria-label="Open Gaurav's AI Assistant"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6D7CFF] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6D7CFF]"></span>
           </span>
-          <Sparkles className="w-3.5 h-3.5 text-[#6D7CFF] group-hover:rotate-12 transition-transform" />
-          <span className="font-semibold tracking-wide">Ask Gaurav&apos;s AI</span>
+          <Sparkles className="w-3.5 h-3.5 text-[#6D7CFF] group-hover:rotate-12 transition-transform shrink-0" />
+          <span className="font-semibold tracking-wide whitespace-nowrap">Ask Gaurav&apos;s AI</span>
         </button>
       )}
 
       {/* Assistant Dialog Window */}
       {isOpen && (
         <div
-          className="w-[90vw] sm:w-[380px] max-h-[560px] h-[520px] bg-[#0D1017] border border-[#202532] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
+          className="w-[calc(100vw-32px)] sm:w-[380px] max-w-[400px] max-h-[82vh] h-[520px] bg-[#0D1017] border border-[#202532] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
           role="dialog"
           aria-label="Ask Gaurav's AI Dialog"
         >
@@ -167,7 +167,7 @@ export function AIChat() {
                 <div
                   className={`max-w-[85%] p-3 rounded-lg leading-relaxed whitespace-pre-wrap ${
                     m.sender === "user"
-                      ? "bg-[#6D7CFF] text-[#08090D] font-medium"
+                      ? "bg-[#6D7CFF] text-white keep-white font-medium shadow-sm"
                       : "bg-[#08090D] border border-[#202532] text-[#F5F7FB]"
                   }`}
                 >
@@ -209,7 +209,7 @@ export function AIChat() {
               <button
                 type="submit"
                 disabled={!input.trim()}
-                className="px-3 py-2 rounded-md bg-[#161B26] hover:bg-[#6D7CFF] hover:text-[#08090D] text-[#F5F7FB] border border-[#202532] text-xs font-mono disabled:opacity-40 disabled:hover:bg-[#161B26] disabled:hover:text-[#F5F7FB] transition-all cursor-pointer"
+                className="px-3.5 py-2 rounded-md bg-[#161B26] hover:bg-[#6D7CFF] hover:text-white text-[#F5F7FB] border border-[#202532] text-xs font-mono disabled:opacity-40 disabled:hover:bg-[#161B26] disabled:hover:text-[#F5F7FB] transition-all cursor-pointer font-medium"
               >
                 Ask
               </button>

@@ -153,9 +153,9 @@ export function Avatar() {
           />
 
           {/* Optional Subtle Tech Badges around Avatar */}
-          {/* Badge 1: Top-Left */}
+          {/* Badge 1: Top-Left (Shoulder Height) */}
           <div
-            className="absolute top-10 -left-2 sm:top-14 sm:left-0 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
+            className="absolute top-24 -left-2 sm:top-28 sm:left-0 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
             style={{
               animation: !prefersReducedMotion
                 ? `subtle-badge-float ${AVATAR_CONFIG.floatCycleDuration * 1.1}s ease-in-out infinite alternate`
@@ -167,9 +167,9 @@ export function Avatar() {
             <span className="font-semibold text-[#F5F7FB] tracking-wider">AI SYSTEMS</span>
           </div>
 
-          {/* Badge 2: Top-Right */}
+          {/* Badge 2: Top-Right (Shoulder Height) */}
           <div
-            className="absolute top-16 -right-2 sm:top-20 sm:right-2 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
+            className="absolute top-32 -right-2 sm:top-36 sm:right-2 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
             style={{
               animation: !prefersReducedMotion
                 ? `subtle-badge-float ${AVATAR_CONFIG.floatCycleDuration * 0.9}s ease-in-out infinite alternate-reverse`

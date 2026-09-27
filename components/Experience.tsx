@@ -27,7 +27,7 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" ref={containerRef} className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+    <section id="experience" ref={containerRef} className="py-16 md:py-32 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#202532]">
         <div>
@@ -45,7 +45,7 @@ export function Experience() {
       </div>
 
       {/* Experience Item */}
-      <div className="p-8 md:p-12 rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all duration-300 shadow-xl">
+      <div className="p-5 sm:p-8 md:p-12 rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all duration-300 shadow-xl">
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-8 border-b border-[#202532]/70">
           <div>
             <div className="flex items-center gap-3 font-mono text-xs text-[#6D7CFF] mb-2">
@@ -172,7 +172,7 @@ export function Experience() {
       {/* Full Resume & Credentials Showcase Card */}
       <div
         id="resume"
-        className="mt-10 p-6 sm:p-8 rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all duration-300 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+        className="mt-10 p-5 sm:p-8 rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 transition-all duration-300 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6"
       >
         <div className="flex items-start gap-4">
           <div className="p-3 rounded-xl bg-[#141A28] border border-[#202532] text-[#6D7CFF] shrink-0 mt-0.5">

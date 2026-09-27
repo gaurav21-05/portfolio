@@ -37,7 +37,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden">
+    <section id="contact" className="py-16 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[350px] bg-[#6D7CFF]/8 rounded-full blur-[140px] pointer-events-none -z-10" />
 
@@ -53,7 +53,7 @@ export function Contact() {
             <br />
             SOMETHING
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F7FB] via-[#F5F7FB] to-[#6D7CFF]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F7FB] via-[#F5F7FB] to-[#6D7CFF] contact-gradient-heading">
               INTELLIGENT.
             </span>
           </h2>
@@ -135,7 +135,7 @@ export function Contact() {
 
         {/* Right Column: Direct Message Form */}
         <div className="lg:col-span-6">
-          <div className="p-8 md:p-10 rounded-xl bg-[#0D1017] border border-[#202532]">
+          <div className="p-5 sm:p-8 md:p-10 rounded-xl bg-[#0D1017] border border-[#202532]">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#202532]">
               <div className="font-mono text-xs uppercase tracking-wider text-[#F5F7FB] flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-[#6D7CFF]" />

@@ -33,7 +33,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-between pt-28 sm:pt-32 md:pt-36 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
+    <section className="relative min-h-[90vh] flex flex-col justify-between pt-32 sm:pt-40 md:pt-44 pb-12 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       {/* Background Subtle Radial Glow & Grid */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#6D7CFF]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute inset-0 bg-grid-pattern opacity-60 mask-radial pointer-events-none -z-20" />

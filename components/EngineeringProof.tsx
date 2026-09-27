@@ -63,7 +63,7 @@ export function EngineeringProof() {
   return (
     <section
       ref={containerRef}
-      className="engineering-proof-banner py-12 px-6 md:px-12 max-w-7xl mx-auto border-y relative z-10"
+      className="engineering-proof-banner py-10 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-y relative z-10"
       aria-label="Engineering Proof Points"
     >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">

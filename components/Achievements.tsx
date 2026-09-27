@@ -14,7 +14,7 @@ export function Achievements() {
   };
 
   return (
-    <section id="achievements" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+    <section id="achievements" className="py-16 md:py-32 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-10">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#202532]">
         <div>

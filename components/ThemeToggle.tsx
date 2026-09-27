@@ -12,7 +12,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={toggleTheme}
-      className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[#161B26] hover:bg-[#202532] border border-[#202532] text-xs font-mono transition-all duration-200 cursor-pointer ${className}`}
+      className={`relative inline-flex items-center justify-center gap-1.5 w-8 h-8 sm:w-auto sm:h-auto px-0 sm:px-3 py-0 sm:py-1.5 rounded-full bg-[#161B26] hover:bg-[#202532] border border-[#202532] text-xs font-mono transition-all duration-200 cursor-pointer ${className}`}
       aria-label={`Switch to ${isLight ? "Dark" : "Cream"} mode`}
       title={`Switch to ${isLight ? "Dark" : "Cream"} mode`}
     >

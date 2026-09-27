@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Project } from "@/data/projects";
 import {
   ArrowUpRight,
@@ -28,6 +29,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isReversed = index % 2 === 1; // Project 02 is visual left, text right
 
@@ -46,7 +52,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <article
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 p-7 md:p-12 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_rgba(109,124,255,0.14)] overflow-hidden"
+        className="group relative rounded-2xl bg-[#0D1017] border border-[#202532] hover:border-[#6D7CFF]/50 p-5 sm:p-8 md:p-12 transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_rgba(109,124,255,0.14)] overflow-hidden"
       >
         {/* Subtle Ambient Radial Glow on Hover */}
         <div className="absolute top-1/3 right-1/4 w-96 h-60 bg-[#6D7CFF]/6 rounded-full blur-[110px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -75,9 +81,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </h3>
 
               {/* Proof Point Chip */}
-              <div className="mt-4 mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#141A28] border border-[#202532] text-xs font-mono text-[#F5F7FB]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#6D7CFF] animate-pulse" />
-                <span className="font-semibold text-white">{project.proofPoint}</span>
+              <div className="mt-4 mb-6 inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-[#141A28] border border-[#202532] text-xs font-mono text-[#F5F7FB]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#6D7CFF] animate-pulse shrink-0" />
+                <span className="font-semibold text-[#F5F7FB]">{project.proofPoint}</span>
                 <span className="text-[#555E70]">•</span>
                 <span className="text-[11px] text-[#8992A4] uppercase tracking-wider">
                   {project.proofLabel}
@@ -147,20 +153,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               isReversed ? "lg:order-1" : "lg:order-2"
             }`}
           >
-            <div className="relative rounded-xl bg-[#08090D] border border-[#202532] group-hover:border-[#2E374A] p-6 sm:p-8 transition-transform duration-400 group-hover:scale-[1.02] shadow-xl">
+            <div className="relative rounded-xl bg-[#08090D] border border-[#202532] group-hover:border-[#2E374A] p-4 sm:p-6 md:p-8 transition-transform duration-400 group-hover:scale-[1.02] shadow-xl">
               {/* Header inside visual card */}
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#202532]/70 font-mono text-xs">
-                <span className="flex items-center gap-2 text-[#F5F7FB] font-semibold">
-                  {project.id === "apex-ai" && <Workflow className="w-4 h-4 text-[#6D7CFF]" />}
-                  {project.id === "wti-cabs" && <Server className="w-4 h-4 text-[#6D7CFF]" />}
-                  {project.id === "shinra" && <Layers className="w-4 h-4 text-[#6D7CFF]" />}
-                  <span>
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#202532]/70 font-mono text-xs gap-3">
+                <span className="flex items-center gap-2 text-[#F5F7FB] font-semibold min-w-0">
+                  {project.id === "apex-ai" && <Workflow className="w-4 h-4 text-[#6D7CFF] shrink-0" />}
+                  {project.id === "wti-cabs" && <Server className="w-4 h-4 text-[#6D7CFF] shrink-0" />}
+                  {project.id === "shinra" && <Layers className="w-4 h-4 text-[#6D7CFF] shrink-0" />}
+                  <span className="truncate">
                     {project.id === "apex-ai" && "BOUNDED ORCHESTRATION DAG"}
                     {project.id === "wti-cabs" && "PIPELINE ARCHITECTURE"}
                     {project.id === "shinra" && "CATALOG AUTOMATION PIPELINE"}
                   </span>
                 </span>
-                <span className="flex items-center gap-1.5 text-[11px] text-[#6D7CFF]">
+                <span className="flex items-center gap-1.5 text-[11px] text-[#6D7CFF] shrink-0 whitespace-nowrap font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6D7CFF] animate-ping" />
                   LIVE SYSTEM
                 </span>
@@ -180,15 +186,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     return (
                       <div
                         key={node.step}
-                        className={`p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between ${
+                        className={`p-3 sm:p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between gap-2 ${
                           isNodeActive
                             ? "bg-[#141A28] border-[#6D7CFF] shadow-[0_0_20px_rgba(109,124,255,0.2)]"
                             : "bg-[#0D1017] border-[#202532] text-[#8992A4]"
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                           <span
-                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 ${
                               isNodeActive
                                 ? "bg-[#6D7CFF] text-[#08090D]"
                                 : "bg-[#161A26] text-[#555E70]"
@@ -196,27 +202,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                           >
                             {node.step}
                           </span>
-                          <div>
+                          <div className="min-w-0 flex-1">
                             <div
-                              className={`text-xs font-semibold ${
+                              className={`text-xs font-semibold truncate ${
                                 isNodeActive ? "text-[#F5F7FB]" : "text-[#8992A4]"
                               }`}
                             >
                               {node.name}
                             </div>
-                            <div className="text-[10px] text-[#555E70] truncate max-w-[220px] sm:max-w-[320px]">
+                            <div className="text-[10px] text-[#555E70] truncate">
                               {node.desc}
                             </div>
                           </div>
                         </div>
 
                         {isNodeActive ? (
-                          <span className="text-[10px] font-mono text-[#6D7CFF] flex items-center gap-1">
+                          <span className="text-[10px] font-mono text-[#6D7CFF] flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap font-semibold">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#6D7CFF] animate-pulse" />
                             ACTIVE
                           </span>
                         ) : (
-                          <span className="text-xs text-[#555E70]">↓</span>
+                          <span className="text-xs text-[#555E70] shrink-0 ml-2">↓</span>
                         )}
                       </div>
                     );
@@ -238,15 +244,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     return (
                       <div
                         key={node.step}
-                        className={`p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between ${
+                        className={`p-3 sm:p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between gap-2 ${
                           isNodeActive
                             ? "bg-[#141A28] border-[#6D7CFF] shadow-[0_0_20px_rgba(109,124,255,0.2)]"
                             : "bg-[#0D1017] border-[#202532] text-[#8992A4]"
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                           <span
-                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 ${
                               isNodeActive
                                 ? "bg-[#6D7CFF] text-[#08090D]"
                                 : "bg-[#161A26] text-[#555E70]"
@@ -254,27 +260,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                           >
                             {node.step}
                           </span>
-                          <div>
+                          <div className="min-w-0 flex-1">
                             <div
-                              className={`text-xs font-semibold ${
+                              className={`text-xs font-semibold truncate ${
                                 isNodeActive ? "text-[#F5F7FB]" : "text-[#8992A4]"
                               }`}
                             >
                               {node.name}
                             </div>
-                            <div className="text-[10px] text-[#555E70] truncate max-w-[220px] sm:max-w-[320px]">
+                            <div className="text-[10px] text-[#555E70] truncate">
                               {node.desc}
                             </div>
                           </div>
                         </div>
 
                         {isNodeActive ? (
-                          <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                          <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap font-semibold">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                             PROCESSING
                           </span>
                         ) : (
-                          <span className="text-xs text-[#555E70]">↓</span>
+                          <span className="text-xs text-[#555E70] shrink-0 ml-2">↓</span>
                         )}
                       </div>
                     );
@@ -295,15 +301,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     return (
                       <div
                         key={node.step}
-                        className={`p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between ${
+                        className={`p-3 sm:p-3.5 rounded-lg border transition-all duration-300 flex items-center justify-between gap-2 ${
                           isNodeActive
                             ? "bg-[#141A28] border-[#6D7CFF] shadow-[0_0_20px_rgba(109,124,255,0.2)]"
                             : "bg-[#0D1017] border-[#202532] text-[#8992A4]"
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                           <span
-                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                            className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 ${
                               isNodeActive
                                 ? "bg-[#6D7CFF] text-[#08090D]"
                                 : "bg-[#161A26] text-[#555E70]"
@@ -311,27 +317,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                           >
                             {node.step}
                           </span>
-                          <div>
+                          <div className="min-w-0 flex-1">
                             <div
-                              className={`text-xs font-semibold ${
+                              className={`text-xs font-semibold truncate ${
                                 isNodeActive ? "text-[#F5F7FB]" : "text-[#8992A4]"
                               }`}
                             >
                               {node.name}
                             </div>
-                            <div className="text-[10px] text-[#555E70] truncate max-w-[220px] sm:max-w-[320px]">
+                            <div className="text-[10px] text-[#555E70] truncate">
                               {node.desc}
                             </div>
                           </div>
                         </div>
 
                         {isNodeActive ? (
-                          <span className="text-[10px] font-mono text-[#6D7CFF] flex items-center gap-1">
+                          <span className="text-[10px] font-mono text-[#6D7CFF] flex items-center gap-1 shrink-0 ml-2 whitespace-nowrap font-semibold">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#6D7CFF] animate-pulse" />
                             DEPLOYED
                           </span>
                         ) : (
-                          <span className="text-xs text-[#555E70]">↓</span>
+                          <span className="text-xs text-[#555E70] shrink-0 ml-2">↓</span>
                         )}
                       </div>
                     );
@@ -340,9 +346,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               )}
 
               {/* Bottom Visual Telemetry */}
-              <div className="mt-6 pt-4 border-t border-[#202532]/70 flex items-center justify-between text-[11px] font-mono text-[#555E70]">
-                <span>ARCHITECTURE: PRODUCTION</span>
-                <span className="text-[#8992A4]">{project.technologies.slice(0, 3).join(" · ")}</span>
+              <div className="mt-6 pt-4 border-t border-[#202532]/70 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#555E70]">
+                <span className="shrink-0">ARCHITECTURE: PRODUCTION</span>
+                <span className="text-[#8992A4] truncate">{project.technologies.slice(0, 3).join(" · ")}</span>
               </div>
             </div>
           </div>
@@ -350,14 +356,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </article>
 
       {/* FULL IN-DEPTH CASE STUDY MODAL */}
-      {modalOpen && (
+      {modalOpen && mounted && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-8 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
           aria-labelledby={`modal-title-${project.id}`}
         >
-          <div className="relative w-full max-w-4xl bg-[#0D1017] border border-[#202532] rounded-xl shadow-2xl p-6 md:p-10 my-8 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-4xl bg-[#0D1017] border border-[#202532] rounded-xl shadow-2xl p-4 sm:p-6 md:p-10 my-4 sm:my-8 max-h-[92vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 border-b border-[#202532] pb-6 mb-6">
               <div>
@@ -542,7 +548,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
