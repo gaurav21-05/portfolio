@@ -12,6 +12,8 @@ export function Stack() {
     Backend: <Terminal className="w-4 h-4 text-[#6D7CFF]" />,
     Databases: <Database className="w-4 h-4 text-[#6D7CFF]" />,
     "Cloud / DevOps": <Cloud className="w-4 h-4 text-[#6D7CFF]" />,
+    "Frameworks & Tools": <Layout className="w-4 h-4 text-[#6D7CFF]" />,
+    Concepts: <Workflow className="w-4 h-4 text-[#6D7CFF]" />,
     Frontend: <Layout className="w-4 h-4 text-[#6D7CFF]" />,
     Architecture: <Workflow className="w-4 h-4 text-[#6D7CFF]" />,
   };

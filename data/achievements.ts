@@ -11,6 +11,16 @@ export interface Achievement {
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
+    id: "leetcode-597",
+    title: "LeetCode 597+ Solved",
+    issuer: "LeetCode (@gauravrawatop)",
+    year: "Active",
+    type: "Certification",
+    description: "Solved 597+ problems: 170 Easy / 319 Medium / 108 Hard. Rank 145,641 globally with 11 technical badges.",
+    highlight: "108 Hard Solved · 11 Badges",
+    iconName: "Code2",
+  },
+  {
     id: "telekom-cursor",
     title: "Deutsche Telekom & Cursor Hackathon",
     issuer: "Deutsche Telekom × Cursor",
@@ -54,7 +64,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: "fcc-dsa",
     title: "JavaScript Algorithms and Data Structures",
     issuer: "freeCodeCamp",
-    year: "2024",
+    year: "2023",
     type: "Certification",
     description: "Comprehensive verification of algorithmic complexity, data structures, functional programming, and object-oriented design in JavaScript.",
     highlight: "Core Computer Science",

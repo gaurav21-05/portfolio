@@ -163,6 +163,16 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <Code2 className="w-3.5 h-3.5 text-[#6D7CFF]" />
                 <span>leetcode.com/u/gauravrawatop</span>
               </a>
+
+              <a
+                href="https://portfolio-jade-three-76.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-[#6D7CFF] transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-[#6D7CFF]" />
+                <span>portfolio-jade-three-76.vercel.app</span>
+              </a>
             </div>
           </div>
 
@@ -338,7 +348,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </div>
               <div className="mt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <span className="text-sm text-[#F5F7FB] font-medium">
-                  B.Tech. — Industrial IoT (IIoT)
+                  B.Tech. — Industrial IoT (IIoT) | CGPA: 8.2/10
                 </span>
                 <span className="text-xs font-mono text-[#6D7CFF]">Sept 2023 – July 2027</span>
               </div>
@@ -409,6 +419,13 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             <div className="space-y-2 text-xs sm:text-sm text-[#8992A4]">
+              <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#08090D] border border-[#202532]">
+                <CheckCircle2 className="w-4 h-4 text-[#6D7CFF] shrink-0 mt-0.5" />
+                <span>
+                  <strong className="text-[#F5F7FB]">Solved 597+ problems on LeetCode:</strong> 170 Easy / 319 Medium / 108 Hard • Rank 145,641 globally • 11 badges (<code className="text-[#6D7CFF] font-mono text-xs">gauravrawatop</code>).
+                </span>
+              </div>
+
               <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#08090D] border border-[#202532]">
                 <CheckCircle2 className="w-4 h-4 text-[#6D7CFF] shrink-0 mt-0.5" />
                 <span>
