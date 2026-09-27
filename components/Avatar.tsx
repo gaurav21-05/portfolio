@@ -119,12 +119,12 @@ export function Avatar() {
       ref={containerRef}
       className="relative flex items-center justify-center w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[500px] mx-auto select-none pointer-events-none"
     >
-      {/* Soft Radial Accent Glow Behind Avatar */}
+      {/* Soft Dual Accent Glow Behind Avatar */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px] rounded-full pointer-events-none -z-10"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] lg:w-[460px] lg:h-[460px] rounded-full pointer-events-none -z-10"
         style={{
           background:
-            "radial-gradient(circle, rgba(109, 124, 255, 0.22) 0%, rgba(109, 124, 255, 0.08) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(109, 124, 255, 0.28) 0%, rgba(245, 158, 11, 0.12) 40%, transparent 70%)",
         }}
       />
 
@@ -140,22 +140,30 @@ export function Avatar() {
         {/* Parallax Wrapper (Cursor response) */}
         <div
           ref={avatarWrapperRef}
-          className="relative w-full aspect-[3/4] max-h-[380px] sm:max-h-[480px] lg:max-h-[580px] will-change-transform"
+          className="relative w-full aspect-[4/5] max-w-[310px] sm:max-w-[370px] lg:max-w-[420px] mx-auto will-change-transform"
         >
-          {/* Transparent Cartoon Avatar Image */}
-          <Image
-            src="/avatar.png"
-            alt="Gaurav Rawat Cartoon Avatar"
-            fill
-            priority
-            sizes="(max-width: 640px) 300px, (max-width: 1024px) 440px, 500px"
-            className="object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
-          />
+          {/* Ambient card aura & border frame */}
+          <div className="relative w-full h-full rounded-3xl p-[1.5px] bg-gradient-to-b from-white/20 via-[#6D7CFF]/30 to-amber-500/20 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_35px_rgba(109,124,255,0.18)] backdrop-blur-sm group">
+            <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#0D1017] border border-[#202532]/70 shadow-inner">
+              <Image
+                src="/avatar.jpg"
+                alt="Gaurav Rawat Avatar"
+                fill
+                priority
+                sizes="(max-width: 640px) 310px, (max-width: 1024px) 370px, 420px"
+                className="object-cover object-[center_28%] transition-transform duration-700 group-hover:scale-105"
+              />
+              {/* Subtle cinematic gradient vignette at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#08090D]/75 via-transparent to-transparent pointer-events-none" />
+              {/* Subtle glass reflection highlight on top-left */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+            </div>
+          </div>
 
           {/* Optional Subtle Tech Badges around Avatar */}
           {/* Badge 1: Top-Left (Shoulder Height) */}
           <div
-            className="absolute top-24 -left-2 sm:top-28 sm:left-0 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
+            className="absolute top-10 -left-2 sm:top-14 sm:-left-4 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/90 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
             style={{
               animation: !prefersReducedMotion
                 ? `subtle-badge-float ${AVATAR_CONFIG.floatCycleDuration * 1.1}s ease-in-out infinite alternate`
@@ -169,7 +177,7 @@ export function Avatar() {
 
           {/* Badge 2: Top-Right (Shoulder Height) */}
           <div
-            className="absolute top-32 -right-2 sm:top-36 sm:right-2 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
+            className="absolute top-16 -right-2 sm:top-22 sm:-right-4 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/90 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
             style={{
               animation: !prefersReducedMotion
                 ? `subtle-badge-float ${AVATAR_CONFIG.floatCycleDuration * 0.9}s ease-in-out infinite alternate-reverse`
@@ -183,7 +191,7 @@ export function Avatar() {
 
           {/* Badge 3: Bottom-Right */}
           <div
-            className="absolute bottom-12 -right-1 sm:bottom-16 sm:right-4 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/85 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
+            className="absolute bottom-6 -right-1 sm:bottom-8 sm:-right-3 z-20 pointer-events-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1017]/90 backdrop-blur-md border border-[#202532] shadow-lg text-[10px] font-mono text-[#8992A4] hover:text-[#F5F7FB] hover:border-[#6D7CFF]/50 transition-all duration-300"
             style={{
               animation: !prefersReducedMotion
                 ? `subtle-badge-float ${AVATAR_CONFIG.floatCycleDuration * 1.25}s ease-in-out infinite alternate`
