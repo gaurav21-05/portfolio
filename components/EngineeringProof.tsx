@@ -72,11 +72,10 @@ export function EngineeringProof() {
           return (
             <div
               key={item.label}
-              className={`flex flex-col justify-between transition-all duration-700 ${
-                isVisible
+              className={`flex flex-col justify-between transition-all duration-700 ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
-              }`}
+                }`}
               style={{ transitionDelay: `${idx * 120}ms` }}
             >
               <div className="flex items-center justify-between mb-3">
